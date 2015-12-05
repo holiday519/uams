@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.opzoon.license.domain.VDIUKey" table="t_ukey_vdi">
+        <id name="licenseId" column="id">
+        	<generator class="increment" />
+        </id>
+        <property name="licenseName" column="name" />
+		<property name="validdayAmount" column="validday_amount" />
+		<property name="maxConnectAmount" column="maxconnect_amount" />
+		<property name="note" column="note" />
+		<property name="licenseURL" column="license_url" />
+    </class>
+</hibernate-mapping>

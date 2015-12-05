@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.opzoon.license.domain.ClusterUKey" table="t_ukey_cluster">
+        <id name="licenseId" column="id">
+        	<generator class="increment" />
+        </id>
+        <property name="guid" column="guid" />
+        <property name="licenseName" column="name" />
+        <property name="version" column="version" />
+        <property name="suiteCount" column="suite_count" />
+        <property name="suiteTerm" column="suite_term" />
+        <property name="vdiCount" column="vdi_count" />
+        <property name="vdiTerm" column="vdi_term" />
+        <property name="fwCount" column="fw_count" />
+        <property name="fwTerm" column="fw_term" />
+        <property name="note" column="note" />
+		<property name="licenseURL" column="license_url" />
+    </class>
+</hibernate-mapping>

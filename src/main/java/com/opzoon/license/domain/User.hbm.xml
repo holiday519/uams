@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.opzoon.license.domain.User" table="t_user">
+        <id name="userId" column="id">
+        	<generator class="increment" />
+        </id> 
+        <property name="userName" column="name" />
+        <property name="password" column="password" update="false" />
+        <property name="telephone" column="telephone" />
+        <property name="email" column="email" />
+       	<!--  这里必须设置lazy="false"，否则会出现延迟加载失败的异常 -->
+        <set name="products" table="t_user_product" lazy="false">
+        	<key column="user_id" />
+        	<many-to-many class="com.opzoon.license.domain.Product" column="product_id" />
+        </set>
+        <property name="userTypeCode" column="user_type" />
+        <property name="note" column="note" />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.opzoon.license.domain.Version" table="t_version">
+        <id name="versionId" column="id">
+        	<generator class="increment" />
+        </id> 
+        <property name="versionNo" column="version_no" />
+        <many-to-one name="product" column="product_type" lazy="false" />
+        <many-to-one name="createUser" column="create_user" lazy="false" />
+        <property name="createDate" column="create_date" />
+        <property name="note" column="note" />
+        <property name="privateKey" column="private_key_url" />
+        <property name="publicKey" column="public_key_url" />
+    </class>
+</hibernate-mapping>

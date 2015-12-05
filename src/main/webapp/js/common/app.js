@@ -1,0 +1,1 @@
+var basicApp = angular.module('basicApp', ['ngRoute', 'anGrid', 'anPopup', 'anValidate', 'opvButtonGroup', 'angularFileUpload']);

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.opzoon.license.domain.License" table="t_license">
+        <id name="licenseId" column="id">
+        	<generator class="increment" />
+        </id> 
+        <discriminator column="license_type" type="string" />
+        <property name="licenseName" column="name" />
+        <many-to-one name="version" column="product_version" lazy="false" unique="true" />
+        <many-to-one name="createUser" column="create_user" lazy="false" />
+        <property name="createDate" column="create_date" />
+        <property name="validdayAmount" column="validday_amount" />
+        <property name="registerInfo" column="register_info" />
+        <property name="note" column="note" />
+        <property name="licenseURL" column="license_url" />
+        <subclass name="com.opzoon.license.domain.SuiteLicense" discriminator-value="suite">
+	        <property name="cpuAmount" column="cpu_amount" />
+	        <property name="nuclearAmout" column="nuclear_amout" />
+	        <property name="hostAmount" column="host_amount" />
+	    </subclass>
+	    <subclass name="com.opzoon.license.domain.VDILicense" discriminator-value="vdi">
+	    	<property name="registerTypeCode" column="register_type" />
+	    	<property name="usageTypeCode" column="usage_type" />
+	    	<property name="maxConnectAmount" column="maxconnect_amount" />
+	    </subclass>
+    </class>
+</hibernate-mapping>
